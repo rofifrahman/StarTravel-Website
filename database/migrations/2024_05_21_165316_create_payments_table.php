@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('order_id')->references('id')->on('orders');
             $table->string('metode_pembayaran');
             $table->string('bukti_transfer');
             $table->timestamps();
